@@ -12,7 +12,7 @@
     <header class="container main-header">
         <div>
           <a href="index.html">
-            <img src="img/logo.png" height="40">
+            <img src="img/banners/portfolio/logo.png" height="40">
           </a>
         </div>
       <nav class="main-nav">
@@ -29,27 +29,14 @@
     </header>
     
     <main>
-      <section class="slides-container">
-        <div class="slide fade">
-          <img src="img/banner1.jpg">
-          <div class="slide-text">
-            Prvý nadpis
-          </div>
-        </div>
+    <section class="slides-container">
+    <?php
+        include_once "functions.php";
+        generateSlides("img/banners");
+    ?>
+    </section>
+
         
-        <div class="slide fade">
-          <img src="img/banner2.jpg">
-          <div class="slide-text">
-            Druhý nadpis
-          </div>
-        </div>
-        
-        <div class="slide fade">
-          <img src="img/banner3.jpg">
-          <div class="slide-text">
-            Tretí nadpis
-          </div>
-        </div>
         
         <a id="prev" class="prev">❮</a>
         <a id="next" class="next">❯</a>
