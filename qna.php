@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -11,9 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<?php
+require_once('classes/spracovanieqna.php');
+use otazkyodpovede\QnA;
+$qnaObj = new QnA();
+$otazkyOdpovede = $qnaObj->getAllQnA();
+?>
   <header class="container main-header">
   <div class="logo-holder">
-    <a href="index.html"><img src="img/logo.png" height="40 "></a>
+    <a href="index.html"><img src="img/portfolio/logo.png" height="40 "></a>
   </div>
   <nav class="main-nav">
     <ul class="main-menu" id="main-menu container">
@@ -40,15 +47,21 @@
         </div>
       </div>
       <section class="container">
-    <?php include "otazky.php"; ?>
-
-    <?php for ($i = 0; $i < count($otazky); $i++) { ?>
-        <div class="accordion">
-            <div class="question"><?php echo $otazky[$i]; ?></div>
-            <div class="answer"><?php echo $odpovede[$i]; ?></div>
-        </div>
-    <?php } ?>
-</section>
+          <?php if (!empty($otazkyOdpovede)): ?>
+          <?php foreach ($otazkyOdpovede as $qna): ?>
+              <div class="accordion">
+                  <div class="question">
+                      <?php echo htmlspecialchars($qna['otazky']); ?>
+                  </div>
+                  <div class="answer">
+                       <?php echo htmlspecialchars($qna['odpovede']); ?>
+                  </div>
+              </div>
+              <?php endforeach; ?>
+          <?php else: ?>
+              <p>Žiadne otázky a odpovede neboli nájdené.</p>
+          <?php endif; ?>
+    </section>
 
 
   </div>

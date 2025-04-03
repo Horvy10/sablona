@@ -10,9 +10,9 @@ function generateSlides($dir) {
         echo '<img src="' . $file . '">';
         echo '<div class="slide-text">';
         echo ($text[basename($file)]); 
-        echo '</div>',
         echo '</div>';
-    }
+        echo '</div>';
+    }    
 } 
 
 ?>
