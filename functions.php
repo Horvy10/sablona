@@ -1,7 +1,7 @@
 <?php
 function generateSlides($dir) {
     $files = glob($dir . "/*.jpg");
-    $json = file_get_contents("data/datas.json");
+    $json = file_get_contents("img/data/datas.json");
     $data = json_decode($json, true);
     $text = $data["text_banner"];
         
